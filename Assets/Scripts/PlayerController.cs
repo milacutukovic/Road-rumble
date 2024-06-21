@@ -61,6 +61,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         }
         transform.position = Vector3.Lerp(transform.position, targetPosition, 80*Time.fixedDeltaTime);
+        controller.center = controller.center;
     }
 
     private void FixedUpdate()
@@ -72,5 +73,12 @@ public class NewBehaviourScript : MonoBehaviour
     private void Jump()
     {
         direction.y= jumpForce;
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.transform.tag == "Obstacle")
+        {
+            PlayerManager.gameOver = true;
+        }
     }
 }
