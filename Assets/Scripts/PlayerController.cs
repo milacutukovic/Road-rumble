@@ -23,7 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
         direction.z = forwardSpeed;
         if (controller.isGrounded)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (SwipeManager.swipeUp)
             {
                 Jump();
             }
@@ -35,7 +35,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        if (SwipeManager.swipeRight) {
             desiredLane++;
             if (desiredLane == 3)
             {
@@ -44,7 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
 
         direction.z = forwardSpeed;
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (SwipeManager.swipeLeft)
         {
             desiredLane--;
             if (desiredLane == -1)
